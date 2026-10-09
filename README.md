@@ -18,7 +18,7 @@ Installed this way, Claude Code reads the plugin from this folder, so an edit he
 ## Install from GitHub (another machine)
 
 ```
-/plugin install savvy-progress --marketplace <owner>/claude-mods
+/plugin install savvy-progress --marketplace Fraktalis/claude-mods
 ```
 
 Then update later with `claude plugin update savvy-progress@alex-mods` after pushing a new version.
