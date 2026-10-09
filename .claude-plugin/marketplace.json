@@ -1,0 +1,14 @@
+{
+  "name": "alex-mods",
+  "description": "Alexandre's Claude Code mods.",
+  "owner": {
+    "name": "Alexandre"
+  },
+  "plugins": [
+    {
+      "name": "savvy-progress",
+      "source": "./plugins/savvy-progress",
+      "description": "Progress bar above the prompt and a live subagent pane with pixel crab mascots, model, tokens and estimated cost."
+    }
+  ]
+}

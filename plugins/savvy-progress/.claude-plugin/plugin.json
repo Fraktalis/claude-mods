@@ -1,0 +1,9 @@
+{
+  "name": "savvy-progress",
+  "version": "1.0.0",
+  "description": "Progress bar above the prompt and a live subagent pane with pixel crab mascots, model, tokens and estimated cost.",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "Alexandre"
+  }
+}
