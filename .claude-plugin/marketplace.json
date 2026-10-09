@@ -14,6 +14,11 @@
       "name": "file-tree",
       "source": "./plugins/file-tree",
       "description": "Side pane with the project tree: files Claude reads, edits or creates light up, and turn green once committed (in every repo they live in)."
+    },
+    {
+      "name": "cache-tax",
+      "source": "./plugins/cache-tax",
+      "description": "Warns before a message that would re-read the whole conversation on a cold prompt cache, shows the cache state in the status line, and can keep it warm with /keepwarm."
     }
   ]
 }

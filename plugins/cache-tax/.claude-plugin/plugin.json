@@ -1,0 +1,28 @@
+{
+  "name": "cache-tax",
+  "version": "1.0.0",
+  "description": "Warns before a message that would re-read the whole conversation on a cold prompt cache, shows the cache state in the status line, and can keep it warm with /keepwarm.",
+  "author": { "name": "Alexandre" },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "ttl": {
+      "type": "string",
+      "title": "Prompt cache lifetime",
+      "description": "How long the prompt cache stays warm after the last request: 1h on a subscription, 5m in usage overage.",
+      "options": ["1h", "5m"],
+      "default": "1h"
+    },
+    "minTokens": {
+      "type": "number",
+      "title": "Warn above (tokens)",
+      "description": "Only stop a message when the context it re-sends is at least this big.",
+      "default": 20000
+    },
+    "maxPings": {
+      "type": "number",
+      "title": "Keep-warm pings",
+      "description": "With /keepwarm on, how many pings in a row while you are away (each keeps the cache warm for one more TTL).",
+      "default": 3
+    }
+  }
+}
