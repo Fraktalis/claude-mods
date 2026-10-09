@@ -6,6 +6,7 @@ My Claude Code mods, as a plugin marketplace (`alex-mods`). One folder per mod u
 |---|---|
 | [savvy-progress](plugins/savvy-progress) | Ember progress bar above the prompt for a batch of subagents, and an Agents pane: crab mascot per agent, live status, per-agent progress bar, model, tokens, estimated cost, elapsed time. |
 | [file-tree](plugins/file-tree) | Files pane with the project tree: files Claude reads (blue), modifies (orange) or creates (purple) light up with a shimmer, and turn green once committed, in every repo they live in. |
+| [tool-skins](plugins/tool-skins) | Reskins the transcript's tool rows: an icon and a palette colour per tool (`dracula` skin from kevinvn1709/vscode-dracula-color-theme), the row's result still drawn by Claude Code. |
 | [cache-tax](plugins/cache-tax) | Prompt-cache state in the status line; stops a message that would re-read the whole conversation on a cold cache and shows what it costs; `/keepwarm` keeps the cache warm while you are away. |
 
 ## Install on this machine (reads straight from this folder)
@@ -15,6 +16,7 @@ claude plugin marketplace add E:/WS/claude-mods
 claude plugin install savvy-progress@alex-mods --scope user
 claude plugin install file-tree@alex-mods --scope user
 claude plugin install cache-tax@alex-mods --scope user
+claude plugin install tool-skins@alex-mods --scope user
 ```
 
 Installed this way, Claude Code reads the plugin from this folder, so an edit here reaches a session with `/reload-plugins` (no reinstall, no version bump).
@@ -56,3 +58,10 @@ Bump `version` in the mod's `.claude-plugin/plugin.json` for each release that G
 - Cost: cold re-writes the whole context to the cache (2x input price for a 1h TTL, 1.25x for 5m); warm reads it at the cache-read price. Prices in `hooks/register.ts` (`PRICES`), same table as savvy-progress.
 - `/cache` shows the details; `/keepwarm on|off` sends a one-line ping ~1m30 before expiry, at most `maxPings` times in a row (never while Claude works or while you type). Each ping costs a cache read and a one-word reply.
 - Options (plugin config): `ttl` (`1h` or `5m`), `minTokens`, `maxPings`. The TTL is not detected: switch it to `5m` in usage overage.
+
+## tool-skins
+
+- Redraws each tool row's header (`ToolUse`): icon + tool name in its palette colour, the call's argument (last 3 path segments, or the one-line command), `…` running, `✗` error, `Interrupted`. The result under the row (`ToolResult`: diffs, Bash output) is still Claude Code's own.
+- `/skin` lists skins, `/skin <name>` switches, `/skin off` hands the rows back; the choice is kept across sessions. `dracula` is on by default.
+- `dracula` comes from `themes/dracula-color-theme.json` of github.com/kevinvn1709/vscode-dracula-color-theme, a Darcula-style palette despite its name: keyword `#CC7832` → Bash, function `#FFC66D` → Edit, string `#6A8759` → Write, number `#6897BB` → Read, type `#4EC9B0` → Grep/Glob, property `#9876AA` → Agent, info `#6796e6` → web tools, debug `#b267e6` → MCP tools, on `#212122`.
+- A new skin is one more entry in `THEMES` (`hooks/register.tsx`). The name `claude-skins` is reserved for Anthropic, hence `tool-skins`.

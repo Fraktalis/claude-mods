@@ -1,0 +1,7 @@
+{
+  "name": "tool-skins",
+  "version": "1.0.0",
+  "description": "Reskins the transcript's tool rows: an icon and a colour per tool, from a theme palette. /skin <name> or /skin off.",
+  "author": { "name": "Alexandre" },
+  "types": "./types/index.d.ts"
+}

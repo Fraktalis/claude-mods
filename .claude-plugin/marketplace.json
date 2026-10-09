@@ -19,6 +19,11 @@
       "name": "cache-tax",
       "source": "./plugins/cache-tax",
       "description": "Warns before a message that would re-read the whole conversation on a cold prompt cache, shows the cache state in the status line, and can keep it warm with /keepwarm."
+    },
+    {
+      "name": "tool-skins",
+      "source": "./plugins/tool-skins",
+      "description": "Reskins the transcript's tool rows: an icon and a colour per tool, from a theme palette (dracula from kevinvn1709/vscode-dracula-color-theme). /skin <name> or /skin off."
     }
   ]
 }
