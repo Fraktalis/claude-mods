@@ -1,0 +1,7 @@
+{
+  "name": "file-tree",
+  "version": "1.0.0",
+  "description": "Side pane with the project tree: files Claude reads, edits or creates light up, and turn green once committed.",
+  "author": { "name": "Alexandre" },
+  "types": "./types/index.d.ts"
+}

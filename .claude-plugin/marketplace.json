@@ -9,6 +9,11 @@
       "name": "savvy-progress",
       "source": "./plugins/savvy-progress",
       "description": "Progress bar above the prompt and a live subagent pane with pixel crab mascots, model, tokens and estimated cost."
+    },
+    {
+      "name": "file-tree",
+      "source": "./plugins/file-tree",
+      "description": "Side pane with the project tree: files Claude reads, edits or creates light up, and turn green once committed (in every repo they live in)."
     }
   ]
 }
